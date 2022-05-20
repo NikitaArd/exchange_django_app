@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-image: url("img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  background-color: #f6f9fd;
+  width: 580px;
+  min-width: 620px;
+  height: 70%;
+  min-height: 70%;
+  margin: auto;
+  margin-top: 12%;
+  padding: 80px 50px;
+  border-radius: 16px;
+}
+
+.form-select {
+  width: 18%;
+}
+
+.total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 0 0 0;
+}
+/*# sourceMappingURL=style.css.map */

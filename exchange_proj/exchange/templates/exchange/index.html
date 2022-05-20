@@ -1,0 +1,46 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}
+    {% if curr_from and curr_to %}
+        {{ curr_from }} - {{ curr_to }}
+    {% else %}
+        Exchange App
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Amount</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="amount" value="{{ amount }}">
+    </div>
+    <div style="display: flex; justify-content:space-around;">
+        <select name="curr_from" class="form-select">
+            {% for curr in curr_table %}
+                {% if curr == curr_from %}
+                    <option selected>{{ curr }}</option>
+                {% endif %}
+                <option>{{ curr }}</option>
+            {% endfor %}
+        </select>
+        <img src="{% static 'exchange/img/arrow.svg'%}" alt="arrow" style="width: 4%; height: 4%; margin-top: 10px;">
+        <select name="curr_to" class="form-select">
+            {% for curr in curr_table %}
+                {% if curr == curr_to %}
+                    <option selected>{{ curr }}</option>
+                {% endif %}
+                <option>{{ curr }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if total %}
+        <div class="total">
+            <h4 style="margin: auto;">{{ total }}</h4>
+        </div>
+    {% endif %}
+
+    <div style="display: flex;"><input type="submit" value="Confirm" class="btn btn-outline-primary" style="margin: 50px auto 0 auto;"></div>
+</form>
+{% endblock content %}
